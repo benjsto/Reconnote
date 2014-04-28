@@ -1,0 +1,346 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    margin-right: 3px;
+    padding: 3px;
+    border: 0;
+    background: #ddd;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    color: #333;
+    border: 1px;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+}
+
+body {
+    font: 24px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4em;
+    background: #555555;
+    color: #999;
+    width: 550px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+input {
+    border-radius: 5px;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #333;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: /*your box-shadow*/,0 0 0 50px white inset;
+    -webkit-text-fill-color: #333;
+}
+
+textarea {
+    border-radius: 5px;
+    color: #333;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #444;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #444;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #444;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #444;
+}
+
+#save-new {
+    background: lightgreen;
+    color: green;
+}
+
+#save-new:hover {
+    color: #222;
+}
+
+#noteapp {
+    margin: 130px 0 40px 0;
+    position: relative;
+}
+
+#noteapp:before {
+    content: '';
+    position: absolute;
+    top: 45px;
+    top: 0px;
+    left: 40px;
+    height: 100%;
+}
+
+#noteapp input::-webkit-input-placeholder {
+}
+
+#noteapp input:-moz-placeholder {
+    color: #a9a9a9;
+}
+
+#noteapp h1 {
+    position: absolute;
+    top: -120px;
+    width: 100%;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    color: #888;
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+}
+
+.section {
+    position: relative;
+}
+
+#header {
+    padding-top: 15px;
+    border-radius: inherit;
+}
+
+#new-note,
+.edit {
+    margin: 0;
+    width: 100%;
+    font-size: 24px;
+    font-family: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    color: #222;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+#new-note {
+    color: #333;
+    border: none;
+    background: #bbb;
+}
+
+#main {
+    position: relative;
+    z-index: 2;
+}
+
+#note-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+#note-list .spinner {
+    margin: 15px auto;
+}
+
+#note-list li {
+    padding-top: 20px;
+    text-align: left;
+    position: relative;
+    font-size: 24px;
+}
+
+#note-list li:last-child {
+    border-bottom: none;
+}
+
+#note-list li.editing {
+    border-bottom: none;
+    padding: 0;
+}
+
+#note-list li.editing .edit {
+    display: block;
+    width: 506px;
+    padding: 13px 17px 12px 17px;
+    margin: 0 0 0 43px;
+}
+
+#note-list li .toggle {
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+#note-list li label {
+    word-break: break-word;
+    margin: 15px 15px 15px 60px;
+    display: inline-block;
+    line-height: 1.2;
+    -webkit-transition: color 0.4s;
+    -moz-transition: color 0.4s;
+    -ms-transition: color 0.4s;
+    -o-transition: color 0.4s;
+    transition: color 0.4s;
+}
+
+#note-list li.completed label {
+    color: #a9a9a9;
+    text-decoration: line-through;
+}
+
+#note-list li .note-save {
+    background: lightgreen;
+    color: green;
+}
+
+#note-list li .note-save:hover {
+    color: #333;
+}
+
+#note-list li .note-destroy {
+    background: darkred;
+    color: #a88a8a;
+}
+
+#note-list li .note-destroy:hover {
+    color: #333;
+}
+
+#note-list li.editing:last-child {
+    margin-bottom: -1px;
+}
+
+#footer {
+    color: #777;
+    padding: 0 15px;
+    position: absolute;
+    right: 0;
+    bottom: -31px;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+}
+
+#footer:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 31px;
+    left: 0;
+    height: 100px;
+    z-index: -1;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3),
+    0 6px 0 -3px rgba(255, 255, 255, 0.8),
+    0 7px 1px -3px rgba(0, 0, 0, 0.3),
+    0 42px 0 -6px rgba(255, 255, 255, 0.8),
+    0 43px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+#info {
+    margin: 65px auto 0;
+    color: #a6a6a6;
+    font-size: 12px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+#info a {
+    color: inherit;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #toggle-all,
+    #note-list li .toggle {
+	     background: none;
+    }
+}
+
+#noteapp .content .login {
+    width: 350px;
+    margin: 45px auto 25px auto;
+}
+
+#noteapp .content .login h2 {
+    font-weight: normal;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+#noteapp .content .login input {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding: 5px;
+    width: 340px;;
+}
+
+#noteapp .content .login .signup-form {
+    margin-top: 25px;
+}
+
+#noteapp .content .login button {
+    padding: 5px 10px;
+    background: #eee;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-family: "Helvetica Neue";
+}
+
+#noteapp .content .login .error {
+    border: 1px solid red;
+    background: #FDEFF0;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+}
+
+#noteapp .content #user-info {
+    padding: 5px 10px;
+    margin-bottom: 0px;
+    text-align: right;
+}
+
+#noteapp .content .mark-all-done {
+    margin-left: 8px;
+}
+
+#credits {
+    color: #888;
+    text-align: center;
+    padding-top: 25px;
+}
+
+#credits a {
+    color: #888;
+}
