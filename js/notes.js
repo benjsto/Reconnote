@@ -1,10 +1,33 @@
 $(function() {
+  // Give Parse JQuery
   Parse.$ = jQuery;
 
-  // Initialize Parse with your Parse application javascript keys
+  // Initialize Parse
   Parse.initialize("AXAPjVoHYkChvpKiXE8gpk34yCs7n5G0uUFVj49u","lCJ4o5fCOpPYwjB7SMkvuTbn64WdY18k7NzwM8Jr");
+	
+  var AppRouter = Parse.Router.extend({
+    routes: {
+      "all": "all",
+    },
 
-  // Basic Note model.
+    initialize: function(options) {
+    },
+
+    all: function() {
+      state.set({ filter: "all" });
+    },
+  });
+
+  // Transient application state
+  var AppState = Parse.Object.extend("AppState", {
+    defaults: {
+      filter: "all"
+    }
+  });
+	
+  var state = new AppState;
+	
+  // Note model.
   var Note = Parse.Object.extend("Note", {
     // Default attributes for the note.
     defaults: {
@@ -24,16 +47,9 @@ $(function() {
     }
   });
 
-  // This is the transient application state, not persisted on Parse
-  var AppState = Parse.Object.extend("AppState", {
-    defaults: {
-      filter: "all"
-    }
-  });
-
   var NoteList = Parse.Collection.extend({
 
-    // Reference to this collection's model.
+    // Collection model
     model: Note,
 
     // Keep the notes in sequential order, despite being saved by unordered
@@ -208,7 +224,6 @@ $(function() {
         success: function(user) {
           new ManageNotesView();
           self.undelegateEvents();
-          //delete self;
         },
 
         error: function(user, error) {
@@ -231,7 +246,6 @@ $(function() {
         success: function(user) {
           new ManageNotesView();
           self.undelegateEvents();
-          //delete self;
         },
 
         error: function(user, error) {
@@ -253,8 +267,6 @@ $(function() {
 
   // The main view for the app
   var AppView = Parse.View.extend({
-    // Instead of generating a new element, bind to the existing skeleton of
-    // the App already present in the HTML.
     el: $("#noteapp"),
 
     initialize: function() {
@@ -269,23 +281,7 @@ $(function() {
       }
     }
   });
-
-  var AppRouter = Parse.Router.extend({
-    routes: {
-      "all": "all",
-    },
-
-    initialize: function(options) {
-    },
-
-    all: function() {
-      state.set({ filter: "all" });
-    },
-  });
-
-  var state = new AppState;
-
+	
   new AppRouter;
   new AppView;
-  Parse.history.start();
 });
