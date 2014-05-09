@@ -4,7 +4,7 @@ $(function() {
 
 	// Initialize Parse
 	Parse.initialize(cfg.getAppKey(), cfg.getJsKey());
-	
+
 	var AppRouter = Parse.Router.extend({
 		routes: {
 			"all": "all",
@@ -24,9 +24,9 @@ $(function() {
 			filter: cfg.getDefaultFilter()
 		}
 	});
-	
-	var state = new AppState;
-	
+
+	var state = new AppState();
+
 	// Note model.
 	var Note = Parse.Object.extend("Note", {
 		// Default attributes for the note.
@@ -140,7 +140,7 @@ $(function() {
 			this.input = this.$("#new-note");
 
 			// Create our collection of Notes
-			this.notes = new NoteList;
+			this.notes = new NoteList();
 
 			// Setup the query for the collection to look for notes from the current user
 			this.notes.query = new Parse.Query(Note);
@@ -279,7 +279,7 @@ $(function() {
 			}
 		}
 	});
-	
-	new AppRouter;
-	new AppView;
+
+	new AppRoute();
+	new AppView();
 });
