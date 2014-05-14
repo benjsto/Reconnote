@@ -280,6 +280,6 @@ $(function() {
 		}
 	});
 
-	new AppRoute();
+	new AppRouter();
 	new AppView();
 });
